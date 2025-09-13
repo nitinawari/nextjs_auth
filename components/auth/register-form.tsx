@@ -32,7 +32,7 @@ export const RegisterForm =()=>{
         defaultValues:{
             email:"",
             password:"",
-            name:""
+            name:""  
 
         }
     })

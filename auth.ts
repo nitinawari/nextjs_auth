@@ -33,14 +33,11 @@ export  const { auth, handlers:{ GET , POST}, signIn, signOut } = NextAuth({
       if(token.sub && session.user){
         session.user.id = token.sub
       }
-      if(token.role && session.user){
-        session.user.role = token.role as UserRole ;
-      }
       
 
       return session;
     },
-    async jwt({token }){  // this jwt callback can access the user data   and cann modify it 
+    async jwt({token }){  //this jwt callback can access the user data   and cann modify it 
       if (!token.sub) return token ;
 
       const existingUser = await getUserById(token.sub);
